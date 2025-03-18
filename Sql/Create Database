@@ -1,0 +1,22 @@
+ CREATE TABLE Students (
+    studentId INT AUTO_INCREMENT PRIMARY KEY,
+    studentFirstName VARCHAR(50) NOT NULL,
+    studentLastName VARCHAR(50) NOT NULL,
+    studentAGE INT NOT NULL,
+    studentGender VARCHAR(10) NOT NULL,
+ );
+
+ CREATE TABLE StudentGrades (
+    gradeId INT AUTO_INCREMENT PRIMARY KEY,
+    studentId INT NOT NULL,
+    courseId INT NOT NULL,
+    gradeCourse INT NOT NULL,
+    FOREIGN KEY (studentId) REFERENCES Students(studentId),
+    FOREIGN KEY (courseId) REFERENCES Courses(courseId)
+ );
+
+ CREATE TABLE Courses (
+    courseId INT AUTO_INCREMENT PRIMARY KEY,
+    courseCode VARCHAR(15) NOT NULL,
+    courseName VARCHAR(50) NOT NULL
+ );
